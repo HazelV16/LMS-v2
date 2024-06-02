@@ -3,6 +3,7 @@
 #### Case Study Learning Management System
 
 Student 1 name and FAN: Tran Anh Truc Vuong (Hazel Vuong) - vuon0044
+
 Student 2 name and FAN: Pronsuda Ruangsuwan - ruan0031
 
 ## 1. List of prompts used to generate the code
@@ -92,7 +93,13 @@ Test case notation:
 - ST: Related test cases in _Student_ class
 - U: Related test cases in _User_ class
 
-| Test case identifier | Method            | Description                                           | Expected | Actual        | Pass/Fail status |
-|----------------------|-------------------|-------------------------------------------------------|----------|---------------|------------------|
-| L11                  | logOut()          | Method that allow user to log out of the system       | null     | User@1cab0bfb | Fail             |
-| C06                  | addExamSchedule() | Method that allow user to add a scheduled exam on LMS |          | 
+| Test case identifier | Method                    | Description                                           | Expected                                                                                                   | Actual                                                          | Pass/Fail status |
+|----------------------|---------------------------|-------------------------------------------------------|------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|------------------|
+| L11                  | logOut()                  | Method that allow user to log out of the system       | null                                                                                                       | User@1cab0bfb                                                   | Fail             |
+| C06                  | addExamSchedule()         | Method that allow user to add a scheduled exam on LMS | ExamSchedules list to not be null and initially empty                                                      | examSchedules list is not null and initially empty              | Pass             | 
+|                      |                           |                                                       | After adding two exam dates (examDate1 and examDate2), the examSchedules list should contain two elements. | the examSchedules list contains two elements                    | Pass             |
+|                      |                           |                                                       | The first element should be examDate1, and the second element should be examDate2.                         | The first element is examDate1, the second element is examDate2 | Pass             |
+| ST03                 | uploadAssignment()        |                                                       |                                                                                                            |                                                                 |                  |
+| L05                  | displayAcademicCalendar() |                                                       |                                                                                                            |                                                                 |                  |
+| SF02                 | communicateWithStudents() |                                                       |                                                                                                            |                                                                 |                  |
+
