@@ -2,6 +2,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.Date;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class UserTest {
@@ -9,20 +11,21 @@ class UserTest {
     User user = new User("testUser1", "password1");
 
     @Test
-    @DisplayName("Test get username method")
+    @DisplayName("Test getUsername() method")
     void getUsername() {
         String userName = user.getUsername();
         assertEquals("testUser1", userName);
     }
 
     @Test
-    @DisplayName("Test get password method")
+    @DisplayName("Test getPassword() method")
     void getPassword() {
         String password = user.getPassword();
         assertEquals("password1", password);
     }
 
     @Test
+    @DisplayName("Test getLastActivityTime() method")
     void getLastActivityTime() {
         // Get the last activity time (initially)
         long initialLastActivityTime = user.getLastActivityTime().getTime();
@@ -37,11 +40,4 @@ class UserTest {
         assertTrue(updatedLastActivityTime > initialLastActivityTime);
     }
 
-    @Test
-    void updateActivityTime() {
-    }
-
-    @Test
-    void logout() {
-    }
 }
