@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class StaffTest {
 
     @Test
-    @DisplayName("Test uploadContent()")
+    @DisplayName("SF01: Test uploadContent()")
     void uploadContent() {
         Staff staff = new Staff("Johnny", "myValentine");
         Course course = new Course("NCT127");
@@ -20,7 +20,7 @@ class StaffTest {
     }
 
     @Test
-    @DisplayName("Test communicateWithStudents()")
+    @DisplayName("SF02: Test communicateWithStudents()")
     void communicateWithStudents() {
         Staff staff = new Staff("Jaehyun", "loveUSuhFam");
         Course course = new Course("NCT127");
@@ -39,6 +39,7 @@ class StaffTest {
     }
 
     @Test
+    @DisplayName("SF03: Test updateActivityTime() staff")
     void testUpdateActivityTime() {
         Staff staff = new Staff("Seunghoon", "4444");
         Date initialTime = staff.getLastActivityTime();

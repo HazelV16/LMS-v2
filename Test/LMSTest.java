@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class LMSTest {
 
     @Test
-    @DisplayName("Test authenticate() success")
+    @DisplayName("L01: Test authenticateSuccess()")
     void authenticateSuccess() {
         LMS lms = new LMS();
         lms.addUser(new User("ruan0031", "12345"));
@@ -24,7 +24,7 @@ class LMSTest {
     }
 
     @Test
-    @DisplayName("Test authenticate() Failure")
+    @DisplayName("L02: Test authenticateSuccess() Failure")
     void authenticateFailure() {
         LMS lms = new LMS();
         lms.addUser(new User("ruan0031", "12345"));
@@ -33,19 +33,7 @@ class LMSTest {
     }
 
     @Test
-    @DisplayName("Test authenticate() wrong password")
-    void authenticateWrongPassword() {
-        LMS lms = new LMS();
-        Student student = new Student("Johnny", "correctPassword");
-        lms.addUser(student);
-
-        User authenticatedUser = lms.authenticate("Johnny", "wrongPassword");
-        // Verify that the authentication fails
-        assertNull(authenticatedUser, "User should not be authenticated with wrong password");
-    }
-
-    @Test
-    @DisplayName("Test accessCourseMaterial() Student can access course material")
+    @DisplayName("L03: Test accessCourseMaterial() Student can access course material")
     void studentAccessCourseMaterial() {
         LMS lms = new LMS();
         Student student = new Student("ruan0031", "12345");
@@ -59,7 +47,7 @@ class LMSTest {
     }
 
     @Test
-    @DisplayName("Test accessCourseMaterial() Staff can access course material")
+    @DisplayName("L04: Test accessCourseMaterial() Staff can access course material")
     void staffAccessCourseMaterial() {
         LMS lms = new LMS();
         Staff staff = new Staff("Hazel", "10987");
@@ -73,7 +61,7 @@ class LMSTest {
     }
 
     @Test
-    @DisplayName("Test displayAcademicCalendar()")
+    @DisplayName("L05: Test displayAcademicCalendar()")
     void displayAcademicCalendar() {
         LMS lms = new LMS();
         Course course1 = new Course("CSE101");
@@ -111,7 +99,7 @@ class LMSTest {
     }
 
     @Test
-    @DisplayName("Test studentCheckGrades()")
+    @DisplayName("L06: Test studentCheckGrades()")
     void studentCheckGrades() {
         LMS lms = new LMS();
         Student student = new Student("ruan0031", "1234");
@@ -140,7 +128,7 @@ class LMSTest {
     }
 
     @Test
-    @DisplayName("Test academicUploadContent()")
+    @DisplayName("L07: Test academicUploadContent()")
     void academicUploadContent() {
         LMS lms = new LMS();
         Staff staff = new Staff("Seunghoon", "4444");
@@ -161,7 +149,7 @@ class LMSTest {
     }
 
     @Test
-    @DisplayName("Test academicCommunicateWithStudents()")
+    @DisplayName("L08: Test academicCommunicateWithStudents()")
     void academicCommunicateWithStudents() {
         LMS lms = new LMS();
         Staff staff = new Staff("Seunghoon", "4444");
@@ -183,7 +171,7 @@ class LMSTest {
     }
 
     @Test
-    @DisplayName("Test checkUserInactivity() more than 10 mins")
+    @DisplayName("L09: Test checkUserInactivity() more than 10 mins")
     void checkUserInactivity() {
         LMS lms = new LMS();
         Student student = new Student("ruan0031", "12345");
@@ -205,7 +193,7 @@ class LMSTest {
     }
 
     @Test
-    @DisplayName("Test checkUserInactivity() less than 10 mins")
+    @DisplayName("L10: Test checkUserInactivity() less than 10 mins")
     void checkUserActiveLessThan10Mins() {
 
         LMS lms = new LMS();
@@ -228,7 +216,7 @@ class LMSTest {
     }
 
     @Test
-    @DisplayName("Test logout()")
+    @DisplayName("L11: Test logout()")
     void logout() {
         LMS lms = new LMS();
         User user = new User("ruan0031", "12345");
