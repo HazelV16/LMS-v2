@@ -9,14 +9,14 @@ import static org.junit.jupiter.api.Assertions.*;
 class CourseTest {
 
     @Test
-    @DisplayName("Test getCourseCode")
+    @DisplayName("C01: Test getCourseCode")
     void getCourseCode() {
         Course course = new Course("CS103");
         assertEquals("CS103", course.getCourseCode());
     }
 
     @Test
-    @DisplayName("Test courseCreation()")
+    @DisplayName("C02: Test courseCreation()")
     void courseCreation() {
         Course course = new Course("CS103");
         assertEquals("CS103", course.getCourseCode());
@@ -27,7 +27,7 @@ class CourseTest {
     }
 
     @Test
-    @DisplayName("Test getAssignments()")
+    @DisplayName("C03: Test getAssignments()")
     void getAssignments() {
         Course course = new Course("CS103");
         Assignment assignment1 = new Assignment("Assignment 1", new Date());
@@ -49,7 +49,7 @@ class CourseTest {
     }
 
     @Test
-    @DisplayName("Test getCourseCode()")
+    @DisplayName("C04: Test getCourseCode()")
     void getExamSchedules() {
         Course course = new Course("CS103");
         Date examDate = new Date();
@@ -61,7 +61,7 @@ class CourseTest {
     }
 
     @Test
-    @DisplayName("Test addAssignment()")
+    @DisplayName("C05: Test addAssignment()")
     void addAssignment() {
         Course course = new Course("CS103");
         Assignment assignment = new Assignment("Assignment 1", new Date());
@@ -75,7 +75,7 @@ class CourseTest {
     }
 
     @Test
-    @DisplayName("Test addExamSchedule()")
+    @DisplayName("C06: Test addExamSchedule()")
     void addExamSchedule() {
         Course course = new Course("CS103");
         Date examDate1 = new Date();

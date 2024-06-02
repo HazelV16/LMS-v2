@@ -12,7 +12,7 @@ class Assignment {
         this.dueDate = dueDate;
     }
 
-    // Methods to manage assignment details
+    // Methodsc to manage assignment details
     // Getters
     public String getName() {
         return name;
