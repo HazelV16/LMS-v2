@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class LMSTest {
 
     @Test
-    @DisplayName("Test authenticateSuccess()")
+    @DisplayName("Test authenticate() success")
     void authenticateSuccess() {
         LMS lms = new LMS();
         lms.addUser(new User("ruan0031", "12345"));
@@ -24,12 +24,24 @@ class LMSTest {
     }
 
     @Test
-    @DisplayName("Test authenticateSuccess() Failure")
+    @DisplayName("Test authenticate() Failure")
     void authenticateFailure() {
         LMS lms = new LMS();
         lms.addUser(new User("ruan0031", "12345"));
         User authenticatedUser = lms.authenticate("invalidUser", "invalidPassword");
         assertNull(authenticatedUser);
+    }
+
+    @Test
+    @DisplayName("Test authenticate() wrong password")
+    void authenticateWrongPassword() {
+        LMS lms = new LMS();
+        Student student = new Student("Johnny", "correctPassword");
+        lms.addUser(student);
+
+        User authenticatedUser = lms.authenticate("Johnny", "wrongPassword");
+        // Verify that the authentication fails
+        assertNull(authenticatedUser, "User should not be authenticated with wrong password");
     }
 
     @Test

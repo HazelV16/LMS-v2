@@ -3,6 +3,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.Calendar;
 import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -44,8 +45,8 @@ class StudentTest {
     }
 
     @Test
-    @DisplayName("Test uploadAssignment() for past due date")
-    void uploadAssignmentPastDueDate() {
+    @DisplayName("Test uploadAssignment() student upload assignment after due date")
+    void uploadAssignmentAfterDueDate() {
         LMS lms = new LMS();
         Student student = new Student("ruan0031", "12345");
         Course course = new Course("CS103");
@@ -53,23 +54,14 @@ class StudentTest {
         lms.addCourse(course);
         student.enrollCourse(course);
 
-        // Create an assignment with a past due date
-        Date pastDueDate = new Date(new Date().getTime() - 1000000); // 1,000,000 milliseconds in the past
-        Assignment pastDueAssignment = new Assignment("Assignment1", pastDueDate);
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.DAY_OF_MONTH, -1); // Set due date to 1 day in the past
+        Date dueDate = calendar.getTime();
+        Assignment assignment = new Assignment("Assignment 2", dueDate);
+        student.uploadAssignment(course, assignment);
 
-        PrintStream originalOut = System.out;
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(outputStream));
-
-        // Upload the past due assignment
-        student.uploadAssignment(course, pastDueAssignment);
-        System.setOut(originalOut);
-
-        // Verify that the past due assignment was uploaded (which indicates a bug)
-        String expectedOutputPast = "Assignment uploaded successfully for CS103\n";
-        assertEquals(expectedOutputPast, outputStream.toString(), "Past due assignment should not be uploaded");
-        outputStream.reset();
-
+        // Verify that the assignment is not added to the course
+        assertFalse(course.getAssignments().contains(assignment), "Assignment should not be uploaded after due date.");
     }
 
     @Test
