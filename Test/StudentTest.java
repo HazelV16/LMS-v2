@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class StudentTest {
 
     @Test
-    @DisplayName("Test uploadAssignment() student enrolled in the course.")
+    @DisplayName("ST01: Test uploadAssignment() student enrolled in the course.")
     void uploadAssignmentEnrolledCourse() {
         LMS lms = new LMS();
         Student student = new Student("Anton", "12345");
@@ -28,7 +28,7 @@ class StudentTest {
     }
 
     @Test
-    @DisplayName("Test uploadAssignment() student upload assignment to unenrolled course")
+    @DisplayName("ST02: Test uploadAssignment() student upload assignment to unenrolled course")
     void uploadAssignmentToUnenrolledCourse() {
         LMS lms = new LMS();
         Student student = new Student("Wonbin", "12345");
@@ -44,7 +44,7 @@ class StudentTest {
     }
 
     @Test
-    @DisplayName("Test uploadAssignment() for past due date")
+    @DisplayName("ST03: Test uploadAssignment() for past due date")
     void uploadAssignmentPastDueDate() {
         LMS lms = new LMS();
         Student student = new Student("ruan0031", "12345");
@@ -73,7 +73,7 @@ class StudentTest {
     }
 
     @Test
-    @DisplayName("Test takeOnlineExam() Student enrolled course.")
+    @DisplayName("ST04: Test takeOnlineExam() Student enrolled course.")
     void takeOnlineExam() {
         LMS lms = new LMS();
         Student student = new Student("Anton", "12345");
@@ -102,7 +102,7 @@ class StudentTest {
     }
 
     @Test
-    @DisplayName("Test takeOnlineExam() before and after exam date")
+    @DisplayName("ST05: Test takeOnlineExam() before and after exam date")
     void testTakeOnlineExamBeforeAndAfterExamDate() {
         LMS lms = new LMS();
         Student student = new Student("student1", "password");
@@ -148,7 +148,7 @@ class StudentTest {
     }
 
     @Test
-    @DisplayName("Test checkGrades()")
+    @DisplayName("ST06: Test checkGrades()")
     void checkGrades() {
         Student student = new Student("ruan0031", "1234");
         Course course1 = new Course("CS102");

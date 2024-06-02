@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class AssignmentTest {
 
     @Test
-    @DisplayName("Test testGetName()")
+    @DisplayName("A01: Test testGetName()")
     public void testGetName() {
         String name = "Research Report";
         Date dueDate = new Date();
@@ -19,7 +19,7 @@ class AssignmentTest {
     }
 
     @Test
-    @DisplayName("Test testGetDueDate()")
+    @DisplayName("A02: Test testGetDueDate()")
     public void testGetDueDate() {
         String name = "Research Report";
         Date dueDate = new Date();
