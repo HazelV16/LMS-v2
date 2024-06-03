@@ -25,6 +25,8 @@ class StudentTest {
 
         assertEquals(1, course.getAssignments().size());
         assertEquals("Impossible Report", assignment.getName());
+        // Verify that the assignment exists in the list of assignments for the course
+        assertTrue(course.getAssignments().contains(assignment));
 
     }
 
