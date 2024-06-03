@@ -24,8 +24,8 @@ class LMSTest {
     }
 
     @Test
-    @DisplayName("L02: Test authenticateSuccess() Failure")
-    void authenticateFailure() {
+    @DisplayName("L02: Test authenticateFail()")
+    void authenticateFail() {
         LMS lms = new LMS();
         lms.addUser(new User("ruan0031", "12345"));
         User authenticatedUser = lms.authenticate("invalidUser", "invalidPassword");
