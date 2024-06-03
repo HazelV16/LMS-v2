@@ -146,22 +146,23 @@ Test case notation:
          
 
 #### 5. StudentTest
-| Test case identifier | Method                               | Description                                                  | Expected                                                                      | Actual                                                      | Pass/Fail |
-|----------------------|--------------------------------------|--------------------------------------------------------------|-------------------------------------------------------------------------------|-------------------------------------------------------------|-----------|
-| ST01                 | uploadAssignmentEnrolledCourse()     | Method for students to upload assignment for enrolled course | True                                                                          | True                                                        | Pass      |
-| ST02                 | uploadAssignmentToUnenrolledCourse() |                                                              |                                                                               |                                                             |           |
-| ST03                 | uploadAssignment()                   |                                                              |                                                                               |                                                             |           |
-| ST04                 | takeOnlineExam()                     | 1. Method that allow student take an online exam.            | 1.1. Student can take online exam in their enrolled courses.                  | 1.1. Student allow to take online exam in enrolled courses. | Pass      |
-| ST05                 |                                      | 2. Student can take online exam in the exam date.            | 2.1. Thrown argument if student attempt to take online exam before exam date. | 2.1. Nothing was thrown.                                    | Fail      |
-| ST06                 |                                      |                                                              |                                                                               |                                                             |           |
-| ST07                 |                                      |                                                              |                                                                               |                                                             |           |
-| ST08                 |                                      |                                                              | 2.2. Thrown argument if student attempt to take online exam after exam date.  | 2.2. Nothing was thrown.                                    | Fail      |
+| Test case identifier | Method                               | Description                                                           | Expected                                                                 | Actual                                                   | Pass/Fail |
+|----------------------|--------------------------------------|-----------------------------------------------------------------------|--------------------------------------------------------------------------|----------------------------------------------------------|-----------|
+| ST01                 | uploadAssignmentEnrolledCourse()     | Method for students to upload assignment for enrolled course          | True                                                                     | True                                                     | Pass      |
+| ST02                 | uploadAssignmentToUnenrolledCourse() | Check if the students able to upload assignment for unenrolled course | False                                                                    | False                                                    | Pass      |
+| ST03                 | uploadAssignmentPastDueDate()        | Check if students able to upload assignment past due date             | False                                                                    | True                                                     | Fail      |
+| ST04                 | takeOnlineExam()                     | Method that allow student take an online exam.                        | Student can take online exam in their enrolled courses.                  | Student allow to take online exam in enrolled courses.   | Pass      |
+| ST05                 | takeOnlineExamUnEnrolledCourse()     | Check if students able to take online exam for unenrolled course      | Students cannot take online exam for unenrolled courses.                 | Students cannot take online exam for unenrolled courses. | Pass      |
+| ST06                 | takeOnlineExamAfterExamDate()        | Check if students able to take online exam after exam date            | Thrown argument if student attempt to take online exam after exam date.  | 2.2. Nothing was thrown.                                 | Fail      |
+| ST07                 | testTakeOnlineExamBeforeExamDate()   | Student can take online exam in the exam date.                        | Thrown argument if student attempt to take online exam before exam date. | 2.1. Nothing was thrown.                                 | Fail      |
 
 
 #### 6. UserTest
 | Test case identifier | Method | Description | Expected | Actual | Pass/Fail |
 |----------------------|--------|-------------|----------|--------|-----------|
-|                      |        |             |          |        |           |
+| U01                  |        |             |          |        |           |
+| U02                  |        |             |          |        |           |
+| U03                  |        |             |          |        |           |
 
 ## Coverage of Test cases
 

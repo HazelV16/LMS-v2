@@ -44,6 +44,8 @@ class StudentTest {
 
         assertEquals(0, course.getAssignments().size());
         assertEquals("You are not enrolled in the course RZ007", "You are not enrolled in the course " + course.getCourseCode());
+        // Verify that the assignment exists in the list of assignments for the course
+        assertFalse(course.getAssignments().contains(assignment));
     }
 
     @Test
@@ -66,32 +68,54 @@ class StudentTest {
     @Test
     @DisplayName("ST04: Test takeOnlineExam() Student enrolled course.")
     void takeOnlineExam() {
+        // Create an instance of LMS, Student, and Course
         LMS lms = new LMS();
         Student student = new Student("Anton", "12345");
         Course course = new Course("RZ007");
 
+        // Add the student to LMS and enroll the student in the course
         lms.addUser(student);
-        lms.addCourse(course);
         student.enrollCourse(course);
-        lms.studentTakeOnlineExam(student,course);
 
-        assertEquals("Taking online exam for RZ007",
-                "Taking online exam for " + course.getCourseCode());
+        // Redirect standard output to capture printed messages
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+
+        // Call the method to take an online exam
+        student.takeOnlineExam(course);
+
+        // Restore standard output
+        System.setOut(System.out);
+
+        // Verify the output message
+        String expectedOutput = "Taking online exam for RZ007\n";
+        assertEquals(expectedOutput, outContent.toString());
     }
 
     @Test
     @DisplayName("ST05: Test takeOnlineExam() Student unenrolled course.")
     void takeOnlineExamUnEnrolledCourse() {
+        // Create an instance of LMS, Student, and Course
         LMS lms = new LMS();
         Student student = new Student("Anton", "12345");
         Course course = new Course("RZ007");
 
+        // Add the student to LMS
         lms.addUser(student);
-        lms.addCourse(course);
-        lms.studentTakeOnlineExam(student,course);
 
-        assertEquals("You are not enrolled in the course RZ007",
-                "You are not enrolled in the course " + course.getCourseCode());
+        // Redirect standard output to capture printed messages
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+
+        // Call the method to take an online exam for a course the student is not enrolled in
+        student.takeOnlineExam(course);
+
+        // Restore standard output
+        System.setOut(System.out);
+
+        // Verify the output message
+        String expectedOutput = "You are not enrolled in the course RZ007\n";
+        assertEquals(expectedOutput, outContent.toString());
     }
 
 
