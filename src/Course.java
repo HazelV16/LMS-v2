@@ -35,7 +35,4 @@ class Course {
     public void addExamSchedule(Date examDate) {
         examSchedules.add(examDate);
     }
-
-
-
 }
