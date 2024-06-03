@@ -158,13 +158,15 @@ Test case notation:
 
 
 #### 6. UserTest
-| Test case identifier | Method | Description | Expected | Actual | Pass/Fail |
-|----------------------|--------|-------------|----------|--------|-----------|
-| U01                  |        |             |          |        |           |
-| U02                  |        |             |          |        |           |
-| U03                  |        |             |          |        |           |
+| Test case identifier | Method                | Description                         | Expected | Actual | Pass/Fail |
+|----------------------|-----------------------|-------------------------------------|----------|--------|-----------|
+| U01                  | getUsername()         | Method to access username           | Equal    | Equal  | Pass      |
+| U02                  | getPassword()         | Method to access password           | Equal    | Equal  | Pass      |
+| U03                  | getLastActivityTime() | Method to access last activity time | True     | True   | Pass      |
+
 
 ## Coverage of Test cases
 
+![alt text](testCoverage.png)
 
 ## Recommendations
