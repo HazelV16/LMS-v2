@@ -164,11 +164,13 @@ Test case notation:
 | U02                  | getPassword()         | Method to access password           | Equal    | Equal  | Pass      |
 | U03                  | getLastActivityTime() | Method to access last activity time | True     | True   | Pass      |
 
-
+After conducting all the test cases, we collected 4 tests failed in total. The logout method in LMS class and User class, uploadAssignment() that pass due date, and takeOnlineExam() that before and after the exam date. 
 
 ## Coverage of Test cases
 
 ![alt text](testCoverage.png)
+#### LMS class
+We did not cover line 69 to 71 in LMS class for studentTakeOnlineExam() method as we already test the takeOnlineExam() method in student class. We think it might overlap with the test cases in StudentTest file. As a result, we left it as 92%. 
 
 ## Recommendations
 
