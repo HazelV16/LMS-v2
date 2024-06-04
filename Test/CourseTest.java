@@ -15,17 +15,6 @@ class CourseTest {
         assertEquals("CS103", course.getCourseCode());
     }
 
-//    @Test
-//    @DisplayName("C02: Test courseCreation()")
-//    void courseCreation() {
-//        Course course = new Course("CS103");
-//        assertEquals("CS103", course.getCourseCode());
-////        assertNotNull(course.getAssignments());
-//        assertTrue(course.getAssignments().isEmpty());
-//        assertNotNull(course.getExamSchedules());
-//        assertTrue(course.getExamSchedules().isEmpty());
-//    }
-
     @Test
     @DisplayName("C02: Test getAssignments()")
     void getAssignments() {
@@ -34,10 +23,8 @@ class CourseTest {
         Assignment assignment2 = new Assignment("Assignment 2", new Date());
 
         List<Assignment> assignments = course.getAssignments();
-//        assertNotNull(assignments);
         assertTrue(assignments.isEmpty());
 
-        // Add assignments
         course.addAssignment(assignment1);
         course.addAssignment(assignment2);
 
@@ -82,10 +69,8 @@ class CourseTest {
         Date examDate2 = new Date(examDate1.getTime() + 1000000);
 
         List<Date> examSchedules = course.getExamSchedules();
-//        assertNotNull(examSchedules);
         assertTrue(examSchedules.isEmpty());
 
-        // Add exam dates to the course
         course.addExamSchedule(examDate1);
         course.addExamSchedule(examDate2);
 

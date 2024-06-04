@@ -68,53 +68,38 @@ class StudentTest {
     @Test
     @DisplayName("ST04: Test takeOnlineExam() Student enrolled course.")
     void takeOnlineExam() {
-        // Create an instance of LMS, Student, and Course
         LMS lms = new LMS();
         Student student = new Student("Anton", "12345");
         Course course = new Course("RZ007");
 
-        // Add the student to LMS and enroll the student in the course
         lms.addUser(student);
         student.enrollCourse(course);
 
-        // Redirect standard output to capture printed messages
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
 
-        // Call the method to take an online exam
         student.takeOnlineExam(course);
-
-        // Restore standard output
         System.setOut(System.out);
 
-        // Verify the output message
-        String expectedOutput = "Taking online exam for RZ007\n";
+        String expectedOutput = "Taking online exam for " +course.getCourseCode()+"\n";
         assertEquals(expectedOutput, outContent.toString());
     }
 
     @Test
     @DisplayName("ST05: Test takeOnlineExam() Student unenrolled course.")
     void takeOnlineExamUnEnrolledCourse() {
-        // Create an instance of LMS, Student, and Course
         LMS lms = new LMS();
         Student student = new Student("Anton", "12345");
         Course course = new Course("RZ007");
-
-        // Add the student to LMS
         lms.addUser(student);
 
-        // Redirect standard output to capture printed messages
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
 
-        // Call the method to take an online exam for a course the student is not enrolled in
         student.takeOnlineExam(course);
-
-        // Restore standard output
         System.setOut(System.out);
 
-        // Verify the output message
-        String expectedOutput = "You are not enrolled in the course RZ007\n";
+        String expectedOutput = "You are not enrolled in the course " + course.getCourseCode()+"\n";
         assertEquals(expectedOutput, outContent.toString());
     }
 
@@ -126,8 +111,7 @@ class StudentTest {
         Date examDate = new Date(1643723400000L); // February 10, 2022 10:00 AM
         course.addExamSchedule(examDate);
 
-        // Create a student enrolled in the course
-        Student student = new Student("johnDoe", "password");
+        Student student = new Student("johnny", "12345");
         student.enrollCourse(course);
 
         // Set the current date to before the exam date
@@ -148,8 +132,7 @@ class StudentTest {
         Date examDate = new Date(1643723400000L); // February 10, 2022 10:00 AM
         course.addExamSchedule(examDate);
 
-        // Create a student enrolled in the course
-        Student student = new Student("johnDoe", "password");
+        Student student = new Student("johnny", "12345");
         student.enrollCourse(course);
 
         // Set the current date to before the exam date

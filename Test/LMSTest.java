@@ -119,7 +119,6 @@ class LMSTest {
         lms.studentCheckGrades(student);
         System.setOut(originalOut);
 
-        // Verify the output
         String expectedOutput = "Your Grades:\n" +
                 "Course: CS101, Grade: 85.0\n";
         assertEquals(expectedOutput, outputStream.toString());
